@@ -90,7 +90,10 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
-        DataManager.Instance.SaveScore();
+        if (DataManager.Instance.highScore > DataManager.Instance.savedHighScore)
+        {
+            DataManager.Instance.SaveScore();
+        }
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
